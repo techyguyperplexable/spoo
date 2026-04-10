@@ -44,8 +44,8 @@ services:
         condition: service_healthy
     env_file: .env
     environment:
-      - MONGODB_URI=mongodb://mongouser:mongouser@db:27017
-      - REDIS_URI=redis://redis:6379/0
+      - MONGODB_URI=${MONGODB_URI:-mongodb://${MONGO_USER:-mongouser}:${MONGO_PASSWORD:-mongouser}@db:27017}
+      - REDIS_URI=${REDIS_URI:-redis://redis:6379/0}
 
 volumes:
   mongo-data:
