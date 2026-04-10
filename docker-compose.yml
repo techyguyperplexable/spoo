@@ -3,8 +3,6 @@ services:
     image: "mongo:latest"
     container_name: spoo_mongo
     restart: always
-    ports:
-      - "27017:27017"
     environment:
       MONGO_INITDB_ROOT_USERNAME: mongouser
       MONGO_INITDB_ROOT_PASSWORD: mongouser
@@ -22,8 +20,6 @@ services:
     image: "redis:latest" # reccommended by offical docs
     container_name: spoo_redis
     restart: always
-    ports:
-      - "6379:6379"
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 10s
